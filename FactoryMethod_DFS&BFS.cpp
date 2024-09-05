@@ -5,6 +5,8 @@
 
 /*
 The factory method (based on user input) returns a unique pointer either dfs or bfs. That return pointer is stored in searcher variable, which can ultimately process run based on this returned pointer.
+Factod Method: "Create a product using related compoenents"
+Abstract family: "Create families of related products"
 */
 
 class Graph {
