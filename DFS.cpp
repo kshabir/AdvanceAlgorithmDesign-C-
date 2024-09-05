@@ -41,7 +41,7 @@ class DFS
     public:
     static std::vector<int>* process(Graph* graph, int startNode)
     {
-      // the run signature need to be carefully selected. Either Static or singelton pattern to get an instance  
+      // the run signature need to be carefully selected. Either Static or singelton pattern to get an instance*  
       return run(graph, startNode);
     }
     
@@ -111,3 +111,37 @@ int main() {
 
     return 0;
 }
+
+/*
+* Both approaches have their merits and drawbacks. Let's compare them:
+
+Marking run as static:
+Pros:
+
+Simpler implementation
+No need for instance management
+Straightforward to understand and use
+No overhead of creating or managing instances
+Cons:
+
+Cannot maintain state between calls (if needed in the future)
+Less flexible if you need to extend or modify behavior
+Harder to mock or replace in unit tests
+Using an instance (Singleton or similar pattern):
+Pros:
+
+Allows for potential stateful operations
+More flexible for future extensions (e.g., adding instance variables)
+Easier to mock or replace in unit tests
+Can implement interfaces or be part of inheritance hierarchies
+Cons:
+
+Slightly more complex implementation
+Small overhead of instance management
+Can be misused as a global state holder
+In this specific case, for a simple DFS implementation, marking run as static is likely the better choice. Here's why:
+
+Simplicity: The DFS algorithm doesn't inherently require maintaining state between calls.
+Performance: Static methods have a tiny performance advantage (though negligible in most cases).
+Clear Intent: It clearly communicates that the method doesn't depend on instance state
+*/
